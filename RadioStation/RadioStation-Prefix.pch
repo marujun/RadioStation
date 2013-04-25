@@ -1,0 +1,20 @@
+//
+// Prefix header for all source files of the 'RadioStation' target in the 'RadioStation' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+#define ALog(fmt,...) NSLog((@"\nALog: %s [Line %d]: " fmt), __PRETTY_FUNCTION__, __LINE__,##__VA_ARGS__);
+
+#define FLog(str, args...) NSLog(@"\n[文件:%s] [行号:%d] [类:%@] [方法:%s]\n%@", strrchr(__FILE__, '/'), __LINE__, [self class], sel_getName(_cmd),[NSString stringWithFormat:str , ##args ])
+
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
